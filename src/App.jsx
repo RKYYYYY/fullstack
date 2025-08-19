@@ -5,9 +5,13 @@ import Header from "./components/Header/Header";
 
 function App() {
   const [user, setUser] = useState(false);
+  const toggleUser = () => {
+    setUser(!user);
+  };
+
   return (
     <div className="h-screen flex flex-col">
-      <Header userConnected={user} />
+      <Header userConnected={user} toggleUser={toggleUser} />
       <main className="flex-1 flex items-center justify-center">
         <Outlet />
       </main>

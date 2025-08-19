@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-export default function Header({ userConnected }) {
+export default function Header({ userConnected, toggleUser }) {
   return (
     <header className="bg-white shadow-md p-4 flex flex-row justify-between items-center">
       <NavLink to="/">
@@ -8,9 +8,13 @@ export default function Header({ userConnected }) {
       </NavLink>
       {userConnected ? (
         <nav className="flex space-x-6 items-center">
-          <a href="#" className="text-gray-600 hover:text-black font-semibold">
+          <NavLink
+            to="/"
+            onClick={toggleUser}
+            className="text-gray-600 hover:text-black font-semibold"
+          >
             Déconnexion
-          </a>
+          </NavLink>
           <a href="#" className="text-gray-600 hover:text-black font-semibold">
             Profil
           </a>
@@ -19,6 +23,7 @@ export default function Header({ userConnected }) {
         <nav className="flex space-x-6">
           <NavLink
             to="/login"
+            onClick={toggleUser}
             className="text-gray-600 hover:text-black font-semibold"
           >
             Connexion
