@@ -1,5 +1,5 @@
 export default function Articles() {
-  export const blogs = [
+  const blogs = [
     {
       id: 4,
       titre: "Performance Web : 10 astuces faciles à mesurer",
