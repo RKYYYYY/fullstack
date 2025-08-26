@@ -5,14 +5,9 @@ import Header from "./components/Header/Header";
 import { Toaster } from "react-hot-toast";
 
 function App() {
-  const [user, setUser] = useState(false);
-  const toggleUser = () => {
-    setUser(!user);
-  };
-
   return (
     <div className="h-screen flex flex-col">
-      <Header userConnected={user} toggleUser={toggleUser} />
+      <Header />
       <main className="flex-1 flex items-center justify-center">
         <Outlet />
       </main>

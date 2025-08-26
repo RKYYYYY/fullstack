@@ -6,36 +6,21 @@ export default function Header({ userConnected, toggleUser }) {
       <NavLink to="/">
         <span className="text-xl font-bold text-blue-500">BLOG 3000</span>
       </NavLink>
-      {userConnected ? (
-        <nav className="flex space-x-6 items-center">
-          <NavLink
-            to="/"
-            onClick={toggleUser}
-            className="text-gray-600 hover:text-black font-semibold"
-          >
-            Déconnexion
-          </NavLink>
-          <a href="#" className="text-gray-600 hover:text-black font-semibold">
-            Profil
-          </a>
-        </nav>
-      ) : (
-        <nav className="flex space-x-6">
-          <NavLink
-            to="/login"
-            onClick={toggleUser}
-            className="text-gray-600 hover:text-black font-semibold"
-          >
-            Connexion
-          </NavLink>
-          <NavLink
-            to="/register"
-            className="text-gray-600 hover:text-black font-semibold"
-          >
-            Inscription
-          </NavLink>
-        </nav>
-      )}
+
+      <nav className="flex space-x-6">
+        <NavLink
+          to="/login"
+          className="text-gray-600 hover:text-black font-semibold"
+        >
+          Connexion
+        </NavLink>
+        <NavLink
+          to="/register"
+          className="text-gray-600 hover:text-black font-semibold"
+        >
+          Inscription
+        </NavLink>
+      </nav>
     </header>
   );
 }
