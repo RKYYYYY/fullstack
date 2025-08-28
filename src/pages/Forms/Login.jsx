@@ -4,9 +4,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { NavLink } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 export default function Login() {
   const navigate = useNavigate();
+
+  const { login } = useAuth();
 
   const defaultValues = {
     data: "",
@@ -41,11 +44,12 @@ export default function Login() {
       });
       const responseFromBackend = await response.json();
       if (response.ok) {
-        toast.success("Bien connecter");
+        toast.success("Bien connecté");
+        login(responseFromBackend.user);
         navigate("/");
         reset(defaultValues);
       } else {
-        toast.error("TG");
+        toast.error(responseFromBackend.message);
       }
     } catch (error) {
       console.log(error);
