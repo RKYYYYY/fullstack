@@ -3,6 +3,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { signUP } from "../../api/auth.api";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -50,18 +51,12 @@ export default function Register() {
     mode: "onChange",
   });
 
+  const test = async () => {};
+
   async function submit(values) {
-    // console.log(values);
     try {
-      const response = await fetch("http://localhost:3000/user", {
-        method: "POST",
-        body: JSON.stringify(values),
-        headers: {
-          "Content-type": "application/json",
-        },
-      });
-      const responseFromBackend = await response.json();
-      if (response.ok) {
+      const responseFromBackend = await signUP(values);
+      if (responseFromBackend.message !== "Déjà inscrit") {
         toast.success(responseFromBackend.message);
         navigate("/login");
         reset(defaultValues);
