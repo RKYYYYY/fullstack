@@ -3,7 +3,7 @@ const BASE_URL = import.meta.env.VITE_SERVER_URL;
 
 export async function signUP(values) {
   try {
-    const response = await fetch(`${BASE_URL}/user`, {
+    const response = await fetch(`${BASE_URL}user`, {
       method: "POST",
       body: JSON.stringify(values),
       headers: {
@@ -19,11 +19,11 @@ export async function signUP(values) {
 
 export async function signIN(values) {
   try {
-    const response = await fetch(`${BASE_URL}/user/login`, {
+    const response = await fetch(`${BASE_URL}user/login`, {
       method: "POST",
       body: JSON.stringify(values),
       headers: {
-        "Content-type": "application/json",
+        "Content-Type": "application/json",
       },
       credentials: "include",
     });
@@ -36,7 +36,7 @@ export async function signIN(values) {
 
 export async function getCurrentUser() {
   try {
-    const response = await fetch(`${BASE_URL}/user/current`, {
+    const response = await fetch(`${BASE_URL}user/current`, {
       method: "GET",
       credentials: "include",
     });
