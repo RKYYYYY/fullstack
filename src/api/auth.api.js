@@ -1,4 +1,5 @@
-import { BASE_URL } from "../utils/url";
+// import { BASE_URL } from "../utils/url";
+const BASE_URL = import.meta.env.VITE_SERVER_URL;
 
 export async function signUP(values) {
   try {
@@ -47,4 +48,11 @@ export async function getCurrentUser() {
   } catch (error) {
     console.log(error);
   }
+}
+
+export async function signOUT() {
+  await fetch(`${BASE_URL}/user/deleteToken`, {
+    method: "DELETE",
+    credentials: "include",
+  });
 }

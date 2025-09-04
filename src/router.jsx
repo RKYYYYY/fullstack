@@ -7,6 +7,8 @@ import Login from "./pages/Forms/Login";
 import ErrorPage from "./pages/ErrorPage";
 import BlogDetails from "./pages/Blog/components/BlogDetails";
 import { rootLoader } from "./loaders/rootLoader";
+import UserConnected from "./components/ProtectedRoutes/UserConnected";
+import UserNotConnected from "./components/ProtectedRoutes/UserNotConnected";
 
 export const router = createBrowserRouter([
   {
@@ -21,7 +23,12 @@ export const router = createBrowserRouter([
       },
       {
         path: "/blog",
-        element: <Blog />,
+
+        element: (
+          <UserNotConnected>
+            <Blog />
+          </UserNotConnected>
+        ),
       },
       {
         path: "/blogdetails/:id",
@@ -29,11 +36,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "/register",
-        element: <Register />,
+        element: (
+          <UserConnected>
+            <Register />
+          </UserConnected>
+        ),
       },
       {
         path: "/login",
-        element: <Login />,
+        element: (
+          <UserConnected>
+            <Login />
+          </UserConnected>
+        ),
       },
     ],
   },

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { createContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import { signOUT } from "../api/auth.api";
 
 const AuthContext = createContext();
 
@@ -13,7 +14,8 @@ export function AuthProvider({ children }) {
     setUserConnected(values);
   };
 
-  const logout = () => {
+  const logout = async () => {
+    await signOUT();
     setUserConnected(null);
   };
 
