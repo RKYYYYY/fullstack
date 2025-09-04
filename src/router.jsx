@@ -25,9 +25,9 @@ export const router = createBrowserRouter([
         path: "/blog",
 
         element: (
-          <UserNotConnected>
+          <UserConnected>
             <Blog />
-          </UserNotConnected>
+          </UserConnected>
         ),
       },
       {
@@ -37,17 +37,17 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: (
-          <UserConnected>
+          <UserNotConnected>
             <Register />
-          </UserConnected>
+          </UserNotConnected>
         ),
       },
       {
         path: "/login",
         element: (
-          <UserConnected>
+          <UserNotConnected>
             <Login />
-          </UserConnected>
+          </UserNotConnected>
         ),
       },
     ],
