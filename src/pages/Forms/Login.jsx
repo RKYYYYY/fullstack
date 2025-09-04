@@ -5,10 +5,7 @@ import { NavLink } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-<<<<<<< HEAD
 import { signIN } from "../../api/auth.api";
-=======
->>>>>>> f872d487b96bef632d0de80ca6307772eaea6475
 
 export default function Login() {
   const navigate = useNavigate();
@@ -39,7 +36,6 @@ export default function Login() {
   async function submit(values) {
     // console.log(values);
     try {
-<<<<<<< HEAD
       const userConnected = await signIN(values);
 
       if (userConnected.user) {
@@ -49,23 +45,6 @@ export default function Login() {
         reset(defaultValues);
       } else {
         toast.error(userConnected.message);
-=======
-      const response = await fetch("http://localhost:3000/user/login", {
-        method: "POST",
-        body: JSON.stringify(values),
-        headers: {
-          "Content-type": "application/json",
-        },
-      });
-      const responseFromBackend = await response.json();
-      if (response.ok) {
-        toast.success("Bien connecté");
-        login(responseFromBackend.user);
-        navigate("/");
-        reset(defaultValues);
-      } else {
-        toast.error(responseFromBackend.message);
->>>>>>> f872d487b96bef632d0de80ca6307772eaea6475
       }
     } catch (error) {
       console.log(error);

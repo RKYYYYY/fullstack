@@ -2,7 +2,6 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import toast from "react-hot-toast";
-<<<<<<< HEAD
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { signUP } from "../../api/auth.api";
 import { useEffect } from "react";
@@ -22,13 +21,6 @@ export default function Register() {
       navigate("/");
     }
   }, [message, navigate]);
-=======
-import { useNavigate } from "react-router-dom";
-import { signUP } from "../../api/auth.api";
-
-export default function Register() {
-  const navigate = useNavigate();
->>>>>>> f872d487b96bef632d0de80ca6307772eaea6475
 
   const defaultValues = {
     username: "",
@@ -73,11 +65,6 @@ export default function Register() {
     mode: "onChange",
   });
 
-<<<<<<< HEAD
-=======
-  const test = async () => {};
-
->>>>>>> f872d487b96bef632d0de80ca6307772eaea6475
   async function submit(values) {
     try {
       const responseFromBackend = await signUP(values);
