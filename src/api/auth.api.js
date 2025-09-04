@@ -1,0 +1,50 @@
+import { BASE_URL } from "../utils/url";
+
+export async function signUP(values) {
+  try {
+    const response = await fetch(`${BASE_URL}/user`, {
+      method: "POST",
+      body: JSON.stringify(values),
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+    const newUserMessage = await response.json();
+    return newUserMessage;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function signIN(values) {
+  try {
+    const response = await fetch(`${BASE_URL}/user/login`, {
+      method: "POST",
+      body: JSON.stringify(values),
+      headers: {
+        "Content-type": "application/json",
+      },
+      credentials: "include",
+    });
+    const userConnected = await response.json();
+    return userConnected;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getCurrentUser() {
+  try {
+    const response = await fetch(`${BASE_URL}/user/current`, {
+      method: "GET",
+      credentials: "include",
+    });
+    if (response.ok) {
+      return await response.json();
+    } else {
+      return null;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
