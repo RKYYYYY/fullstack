@@ -13,7 +13,7 @@ export default function Header() {
         {userConnected ? (
           <>
             <NavLink
-              to="/"
+              to="/blog"
               className="text-gray-600 hover:text-black font-semibold"
             >
               Blog
