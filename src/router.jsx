@@ -23,7 +23,6 @@ export const router = createBrowserRouter([
       },
       {
         path: "/blog",
-
         element: (
           <UserConnected>
             <Blog />
